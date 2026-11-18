@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ARVANA | Less Busywork. More Life.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#080808;--gold:#D4AF37;--white:#F5F3EE;--char:#292929;--blue:#4b7bff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:80px;background:var(--black)}
+body{background:transparent;color:var(--white);font-family:Inter,system-ui,sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:-1;width:100%;height:100%;background:radial-gradient(ellipse at 70% 20%,#1a1408 0,#080808 60%)}
+.veil{position:fixed;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,8,8,.75),rgba(8,8,8,.25) 60%,rgba(8,8,8,.5));pointer-events:none}
+h1,h2,.logo{font-family:Cinzel,Georgia,serif;font-weight:500}
+.mid{position:absolute;left:50%;top:50%;width:34%;aspect-ratio:1;transform:translate(-50%,-50%);display:grid;place-items:center}
+.mid:before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle,#d4af3755,transparent 65%);animation:pulse 4s ease-in-out infinite}
+.mid svg{position:relative;width:100%;height:100%;filter:drop-shadow(0 0 16px #d4af37aa)}
+@keyframes pulse{50%{transform:scale(1.15);opacity:.65}}
+.hz{position:fixed;left:-25%;right:-25%;bottom:-42vh;height:62vh;z-index:-1;border-radius:50%;background:#030303;box-shadow:0 -2px 50px 4px #f0c85099,0 -24px 140px 30px #d4af3733,inset 0 24px 50px #4b7bff22;pointer-events:none}
+.vg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,#000000d9 100%)}
+.grain{position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='.9'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+.gold{color:var(--gold)}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;padding-top:calc(14px + env(safe-area-inset-top,0px));background:linear-gradient(#080808e6,#08080800);backdrop-filter:blur(6px)}
+.logo{display:flex;align-items:center;gap:10px;font-size:1.4rem;letter-spacing:.18em;color:var(--gold);text-decoration:none}
+.menu{display:flex;gap:6px;padding:5px;border:1px solid #d4af3744;border-radius:99px;background:#0b0b0bcc}
+.menu a{color:var(--white);text-decoration:none;font-size:.85rem;padding:6px 16px;border-radius:99px;transition:.3s}
+.menu a:hover{background:#d4af3722;color:var(--gold)}
+.btn{display:inline-block;background:linear-gradient(135deg,#e6c25a,#b8932a);color:#111;font-weight:500;text-decoration:none;border:0;border-radius:99px;padding:12px 28px;cursor:pointer;font:500 .95rem Inter,sans-serif;transition:.3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #d4af3744}.btn.sm{padding:8px 20px;font-size:.85rem}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+section{padding:110px 6vw;position:relative}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;max-width:1300px;margin:auto}
+.tag{display:inline-block;border:1px solid #d4af3755;color:var(--gold);padding:4px 14px;border-radius:99px;font-size:.78rem;letter-spacing:.1em;margin-bottom:22px;width:fit-content}
+.hero h1{font-size:clamp(3rem,10vw,7rem);letter-spacing:.14em;color:var(--gold);line-height:1;background:linear-gradient(180deg,#f3d77a,#b8932a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero h2{font-size:clamp(1.4rem,3.6vw,2.6rem);margin:18px 0 12px;letter-spacing:.02em}
+.hero p{max-width:480px;color:#d8d5cc;margin-bottom:30px}
+.scroll{margin-top:50px;font-size:.75rem;letter-spacing:.2em;color:#aaa}
+h2.t{font-size:clamp(1.8rem,4.5vw,3.2rem);line-height:1.15;margin-bottom:14px}.sub{color:#cfcbc0;max-width:520px}
+.story{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2vw;max-width:1200px;margin:auto}
+.stage{text-align:center}.stage svg{width:100%;max-width:340px}
+.cap{font-size:.85rem;color:#bbb;margin-top:8px;letter-spacing:.08em}
+.chip{display:inline-block;margin:3px;padding:4px 12px;border:1px solid #d4af3744;border-radius:10px;font-size:.75rem;background:#111c;color:var(--white)}
+.arrow{width:min(20vw,200px)}.arrow path{stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset 2s}.vis .arrow path{stroke-dashoffset:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;max-width:1200px;margin:40px auto 0}
+.card{background:linear-gradient(160deg,#171717,#0d0d0d);border:1px solid #d4af3733;border-radius:18px;padding:26px 22px;transition:.4s}
+.card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 14px 40px #d4af3714}
+.card svg{width:36px;height:36px;stroke:var(--gold);fill:none;stroke-width:1.5;margin-bottom:14px}
+.card h3{font-size:1.02rem;font-weight:500;margin-bottom:6px}.card p{font-size:.88rem;color:#bdb9ae}
+.wrap{max-width:1200px;margin:auto}
+.flow{position:relative;max-width:720px;aspect-ratio:1;margin:30px auto 0}
+.flow svg.ring{position:absolute;inset:0;width:100%;height:100%}
+.ring circle{fill:none;stroke:var(--gold);stroke-width:1;stroke-dasharray:4 8;opacity:.5;transform-origin:center;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.node{position:absolute;transform:translate(-50%,-50%);width:clamp(120px,24%,170px);text-align:center;padding:14px 8px;border-radius:16px;background:#101010ee;border:1px solid #d4af3744;font-size:.92rem;opacity:.35;transition:.6s}
+.node b{display:block;color:var(--gold);font-size:.75rem;letter-spacing:.15em}
+.node.on{opacity:1;border-color:var(--gold);box-shadow:0 0 30px #d4af3733}
+.ind{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px;max-width:1200px;margin:40px auto 0}
+.ic{border-radius:20px;overflow:hidden;border:1px solid #d4af3733;background:#0e0e0e;transition:.4s}.ic:hover{border-color:var(--gold);transform:translateY(-6px)}
+.ic div.b{padding:20px}.ic h3{font-size:1.15rem;font-weight:500;margin-bottom:8px}
+.ic li{list-style:none;font-size:.88rem;color:#c8c4b9;padding-left:20px;position:relative;margin:4px 0}.ic li:before{content:"✓";position:absolute;left:0;color:var(--gold)}
+form{max-width:520px;margin:34px auto 0;display:grid;gap:14px;text-align:left}
+label{font-size:.8rem;letter-spacing:.08em;color:#cfcbc0}
+input{width:100%;margin-top:6px;padding:14px 16px;border-radius:12px;border:1px solid #d4af3744;background:#111;color:var(--white);font:400 1rem Inter,sans-serif}
+input:focus{outline:2px solid var(--gold);outline-offset:1px}input[aria-invalid=true]{border-color:#e5645a}
+.err{color:#f08a80;font-size:.78rem;min-height:1em;display:block}
+#msg{padding:14px;border-radius:12px;font-size:.92rem;display:none;text-align:center}
+#msg.ok{display:block;background:#d4af3722;border:1px solid var(--gold)}#msg.bad{display:block;background:#e5645a22;border:1px solid #e5645a}
+footer{padding:50px 6vw 40px;border-top:1px solid #d4af3733;background:#080808ee;text-align:center}
+footer p{color:#aaa;font-size:.85rem;margin:12px 0}footer nav{position:static;justify-content:center;gap:24px;background:none;padding:10px;backdrop-filter:none}footer nav a{color:var(--white);text-decoration:none;font-size:.85rem}
+.rv{opacity:0;transform:translateY(30px);transition:1s}.rv.vis{opacity:1;transform:none}
+.dm{position:fixed;inset:0;z-index:50;display:flex;align-items:flex-start;justify-content:center;background:#000000d9;backdrop-filter:blur(6px);overflow-y:auto;padding:4vh 4vw}.dm[hidden]{display:none}
+.dp{position:relative;width:100%;max-width:680px;background:linear-gradient(160deg,#151515,#0b0b0b);border:1px solid #d4af3755;border-radius:22px;padding:34px clamp(18px,4vw,38px);margin:auto;box-shadow:0 30px 80px #000}
+.dp h2{font-size:clamp(1.4rem,4vw,2rem);outline:0;padding-right:36px}.dx{position:absolute;top:12px;right:14px;width:40px;height:40px;border-radius:50%;border:1px solid #d4af3744;background:#111;color:var(--white);font-size:1.4rem;cursor:pointer}
+.pgw{position:sticky;top:0;z-index:2;background:#0f0f0f;padding:12px 0 8px;margin-top:10px}.pg{height:4px;background:#2a2a2a;border-radius:4px;overflow:hidden}.pg>div{height:100%;width:0;background:linear-gradient(90deg,#b8932a,#f3d77a);transition:.4s}.pgt{font-size:.78rem;color:#bbb;letter-spacing:.06em;margin-top:6px}
+.qg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.qg label{font-size:.75rem}
+fieldset.qc{border:0;padding:0;margin:24px 0 0;min-width:0}.qc legend{font-weight:500;font-size:1.02rem;margin-bottom:10px;padding:0}.qc.miss legend{color:#f08a80}
+.ch{display:flex;flex-wrap:wrap;gap:8px}.ch label{position:relative;cursor:pointer}.ch input{position:absolute;opacity:0;width:100%;height:100%;margin:0;padding:0;border:0;background:none;cursor:pointer}
+.ch span.o{display:flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid #d4af3744;border-radius:99px;background:#111;font-size:.9rem;transition:.2s}.ch label:hover span.o{border-color:var(--gold)}
+.ch input:checked+span.o{background:linear-gradient(135deg,#e6c25a,#b8932a);color:#111;font-weight:500;border-color:transparent}.ch input:focus-visible+span.o{outline:2px solid var(--gold);outline-offset:2px}
+.fc{margin:6px auto;display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:center}.fc a{color:var(--white);text-decoration:none;font-size:.95rem}.fc a:hover{color:var(--gold)}.trust{color:#d8d5cc!important;font-size:.9rem!important;max-width:520px;margin:12px auto!important}
+@media(max-width:560px){.qg{grid-template-columns:1fr}}
+@media(max-width:860px){.menu{display:none}.story{grid-template-columns:1fr}.arrow{transform:rotate(90deg);margin:auto;width:120px}.ind{grid-template-columns:1fr}section{padding:80px 6vw}.hero{padding-top:90px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.arrow path{stroke-dashoffset:0}html{scroll-behavior:auto}}
+</style></head><body>
+<canvas id="bg" aria-hidden="true"></canvas><div class="veil"></div><div class="hz"></div><div class="vg"></div><div class="grain"></div>
+<nav><a class="logo" href="#home"><svg width="30" height="30" viewBox="0 0 40 40"><path d="M20 4 4 36h8l8-18 8 18h8z" fill="#D4AF37"/></svg>ARVANA</a>
+<div class="menu"><a href="#home">Home</a><a href="#solutions">Solutions</a><a href="#industries">About</a><a href="#contact">Contact</a></div>
+<button class="btn sm" type="button" data-open="nav">Start a Free Demo</button></nav>
+
+<section id="home" class="hero"><span class="tag">★ Smarter Business Automation</span>
+<h1>ARVANA</h1><h2>Less Busywork. More Life.</h2>
+<p>Your trusted AI partner to automate, streamline, and grow your business effortlessly.</p>
+<div class="scroll">SCROLL TO DISCOVER ⌄</div></section>
+
+<section id="story"><div class="story rv" id="storyBox">
+<div class="stage"><svg viewBox="0 0 300 260" aria-label="Overwhelmed person at a laptop">
+<defs>
+<radialGradient id="sk" cx=".4" cy=".3" r=".85"><stop offset="0" stop-color="#f8dfc8"/><stop offset=".6" stop-color="#e3b48c"/><stop offset="1" stop-color="#c58f68"/></radialGradient>
+<linearGradient id="sh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3eada"/><stop offset="1" stop-color="#a99a7f"/></linearGradient>
+<linearGradient id="hr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6a4a35"/><stop offset="1" stop-color="#1c120b"/></linearGradient>
+<linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d77a"/><stop offset="1" stop-color="#8a6a18"/></linearGradient>
+<linearGradient id="pn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3d3d41"/><stop offset="1" stop-color="#18181a"/></linearGradient>
+<radialGradient id="gl"><stop offset="0" stop-color="#D4AF37" stop-opacity=".45"/><stop offset="1" stop-color="#D4AF37" stop-opacity="0"/></radialGradient>
+<g id="hd"><path d="M-12 22h24v28h-24z" fill="#c28b64"/><path d="M-12 28q12 10 24 0v-6h-24z" fill="#000" opacity=".2"/>
+<ellipse cx="-33" cy="4" rx="5" ry="9" fill="#d19a72"/><ellipse cx="33" cy="4" rx="5" ry="9" fill="#d19a72"/>
+<ellipse cx="0" cy="0" rx="32" ry="38" fill="url(#sk)"/><path d="M-30 12q4 30 30 34 26-4 30-34-6 24-30 26-24-2-30-26z" fill="#000" opacity=".08"/>
+<path d="M0 4q-5 10-1 14 5 3 8-1" stroke="#b9805c" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/><ellipse cx="-2" cy="2" rx="1.6" ry="5" fill="#fff" opacity=".2"/>
+<path d="M-34 -4C-40 -50 -6 -64 24 -52 42 -44 40 -14 35 -4 29 -24 12 -32 -4 -28 -20 -24 -30 -14 -34 -4z" fill="url(#hr)"/>
+<path d="M-26 -30q14-14 36-12M-18 -22q16-10 32-6M-30 -16q8-18 28-22" stroke="#a07a5c" stroke-opacity=".5" stroke-width="1.5" fill="none" stroke-linecap="round"/></g>
+<g id="eyeS"><ellipse cx="-12" cy="2" rx="8" ry="4" fill="#5a3a5a" opacity=".14"/><ellipse cx="-12" cy="0" rx="6" ry="4" fill="#fff"/><circle cx="-12" cy="1" r="3" fill="#4a2e1c"/><circle cx="-12" cy="1" r="1.3" fill="#000"/><circle cx="-11" cy="0" r=".8" fill="#fff"/>
+<path d="M-18.5 -1.8Q-12 -3.8 -5.5 -1.8L-5.5 -7L-18.5 -7z" fill="#dba97f"/><path d="M-18.5 -1.8Q-12 -3.8 -5.5 -1.8" stroke="#2a1a10" stroke-width="2" fill="none"/><path d="M-19 -8Q-12 -10 -6 -14" stroke="#2b1a10" stroke-width="2.6" fill="none" stroke-linecap="round"/></g>
+<g id="eyeH"><path d="M-18 -1Q-12 -9 -6 -1" stroke="#2a1a10" stroke-width="2.8" fill="none" stroke-linecap="round"/><path d="M-18 -1l-2-2M-6 -1l2-2" stroke="#2a1a10" stroke-width="1.5" stroke-linecap="round"/><path d="M-19 -12Q-12 -16 -6 -12" stroke="#2b1a10" stroke-width="2.6" fill="none" stroke-linecap="round"/></g>
+</defs>
+<ellipse cx="150" cy="244" rx="130" ry="9" fill="#000" opacity=".6"/><ellipse cx="225" cy="165" rx="75" ry="50" fill="url(#gl)"/>
+<path d="M52 240C46 172 74 144 112 150L128 152C160 160 172 196 176 240z" fill="url(#sh)"/><path d="M128 152C160 160 172 196 176 240h-26c-2-40-10-68-30-88z" fill="#000" opacity=".16"/><path d="M74 190q10 8 6 32M104 200q6 14 0 34" stroke="#000" stroke-opacity=".12" stroke-width="3" fill="none"/>
+<path d="M132 168q6 34 22 38" stroke="url(#sh)" stroke-width="24" stroke-linecap="round" fill="none"/>
+<g transform="translate(100,106) rotate(-14)"><use href="#hd"/><use href="#eyeS"/><use href="#eyeS" transform="scale(-1 1)"/><path d="M-8 24Q0 19 8 24" stroke="#9a4f45" stroke-width="2.6" fill="none" stroke-linecap="round"/><ellipse cx="0" cy="27" rx="4" ry="1.5" fill="#b8665a" opacity=".5"/><path d="M-20 -50q-8-8-2-14M8 -56q8-8 16-4" stroke="#3a2518" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+<path d="M88 152q14 16 30 0" stroke="#9a8b72" stroke-width="3" fill="none"/>
+<path d="M148 192q-4-44-34-62" stroke="url(#sh)" stroke-width="20" stroke-linecap="round" fill="none"/><path d="M148 192q-4-44-34-62" stroke="#000" stroke-opacity=".1" stroke-width="6" stroke-linecap="round" fill="none" transform="translate(5 0)"/>
+<g transform="translate(114,126) rotate(-20)"><ellipse rx="11" ry="9" fill="url(#sk)"/><path d="M-6 -6l-3-10M-1 -8l-1-12M4 -7l2-11M8 -3l6-8" stroke="#e0ab82" stroke-width="5" stroke-linecap="round"/></g>
+<rect x="120" y="208" width="180" height="9" rx="4" fill="#3b2f22"/><rect x="120" y="208" width="180" height="2" fill="#D4AF37" opacity=".35"/>
+<path d="M178 208h120l-6-8H184z" fill="#262626"/><path d="M188 200l8-54h76l8 54z" fill="#0c0c0c" stroke="#D4AF37" stroke-opacity=".5"/>
+<g><rect x="202" y="156" width="54" height="8" rx="3" fill="#D4AF37" opacity=".65"/><rect x="202" y="170" width="40" height="8" rx="3" fill="#D4AF37" opacity=".35"/><rect x="202" y="184" width="48" height="8" rx="3" fill="#D4AF37" opacity=".35"/><circle cx="262" cy="160" r="4" fill="#e5645a"/></g>
+<path d="M158 206q22 2 38-8" stroke="url(#sh)" stroke-width="17" stroke-linecap="round" fill="none"/><g transform="translate(200,197)"><ellipse rx="10" ry="7" fill="url(#sk)"/><path d="M4 -3l9 1M5 1l9 3" stroke="#e0ab82" stroke-width="4" stroke-linecap="round"/></g>
+<rect x="272" y="188" width="18" height="20" rx="3" fill="#ddd"/><path d="M276 182q-3-6 1-10M284 182q-3-6 1-10" stroke="#888" stroke-width="1.5" fill="none"/>
+<path d="M52 44c14-16 34-10 26 6s-34 22-14 36M74 30c10-8 22 0 14 10" stroke="#9a9a9a" fill="none" stroke-width="2" stroke-linecap="round"/></svg>
+<div><span class="chip">Unanswered messages</span><span class="chip">Pending follow-ups</span><span class="chip">Repetitive tasks</span><span class="chip">Missed opportunities</span></div><div class="cap">THE BUSINESS PROBLEM</div></div>
+<svg class="arrow" viewBox="0 0 200 80"><path d="M5 60C60 70 110 20 185 30M170 15l16 15-18 12" stroke="#D4AF37" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+<div class="stage"><svg viewBox="0 0 300 260" aria-label="Confident person with growth bars">
+<ellipse cx="140" cy="244" rx="130" ry="9" fill="#000" opacity=".6"/><ellipse cx="225" cy="150" rx="70" ry="80" fill="url(#gl)"/>
+<g fill="url(#bar)"><rect x="200" y="178" width="20" height="60" rx="3"/><rect x="226" y="148" width="20" height="90" rx="3"/><rect x="252" y="108" width="20" height="130" rx="3"/></g>
+<path d="M198 112l30-26 22 8 26-34M266 62h-14M266 62v14" stroke="#D4AF37" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M100 204h28l-2 34h-26z" fill="url(#pn)"/><path d="M132 204h28l2 34h-26z" fill="url(#pn)"/><ellipse cx="112" cy="241" rx="17" ry="6" fill="#0d0d0d"/><ellipse cx="150" cy="241" rx="17" ry="6" fill="#0d0d0d"/>
+<path d="M84 150q46-18 92 0l-4 58q-42 10-84 0z" fill="url(#sh)"/><path d="M134 140q32 2 42 10l-4 58q-14 3-26 4z" fill="#000" opacity=".15"/><path d="M96 208h68" stroke="#111" stroke-width="4"/><path d="M104 180q6 12 2 24M150 176q-6 14-2 28" stroke="#000" stroke-opacity=".12" stroke-width="3" fill="none"/>
+<path d="M96 156L50 114M166 156l46-42" stroke="url(#sh)" stroke-width="20" stroke-linecap="round" fill="none"/><path d="M166 156l46-42" stroke="#000" stroke-opacity=".1" stroke-width="6" stroke-linecap="round" transform="translate(0 5)"/>
+<g transform="translate(44,108) rotate(-40)"><ellipse rx="10" ry="9" fill="url(#sk)"/><path d="M-6 -6l-4-10M-2 -8l-1-12M3 -8l3-11M7 -4l8-8" stroke="#e0ab82" stroke-width="4.5" stroke-linecap="round"/></g>
+<g transform="translate(210,108) rotate(40)"><ellipse rx="10" ry="9" fill="url(#sk)"/><path d="M6 -6l4-10M2 -8l1-12M-3 -8l-3-11M-7 -4l-8-8" stroke="#e0ab82" stroke-width="4.5" stroke-linecap="round"/></g>
+<g transform="translate(126,92)"><use href="#hd"/><use href="#eyeH"/><use href="#eyeH" transform="scale(-1 1)"/>
+<circle cx="-20" cy="12" r="6" fill="#e58a7a" opacity=".3"/><circle cx="20" cy="12" r="6" fill="#e58a7a" opacity=".3"/>
+<path d="M-13 14Q0 32 13 14Z" fill="#fff" stroke="#9a4f45" stroke-width="2" stroke-linejoin="round"/><path d="M-6 24Q0 20 6 24Q0 28 -6 24z" fill="#d46a6a" opacity=".85"/><path d="M-12 15.5Q0 19 12 15.5" stroke="#d8d0c0" stroke-width="1.5" fill="none"/></g>
+<path d="M112 146q14 14 30 0" stroke="#9a8b72" stroke-width="3" fill="none"/>
+<path d="M40 70l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="#D4AF37"/></svg>
+<div><span class="chip">Tasks completed</span><span class="chip">Customers engaged</span><span class="chip">Growth</span></div><div class="cap">FROM OVERWHELMED TO IN CONTROL</div></div></div></section>
+
+<section id="problems"><div class="wrap rv"><h2 class="t">Still Handling Everything <span class="gold">Manually?</span></h2>
+<p class="sub">Missed customer messages, repetitive tasks, and endless follow-ups can slow down your business.</p>
+<div class="cards">
+<div class="card"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><h3>Missed Inquiries</h3><p>Customers move on when nobody replies in time.</p></div>
+<div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Time-Consuming Follow-ups</h3><p>Hours lost chasing leads one message at a time.</p></div>
+<div class="card"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2M20 4v5h-5M4 20v-5h5"/></svg><h3>Repetitive Work</h3><p>The same answers and entries, every single day.</p></div>
+<div class="card"><svg viewBox="0 0 24 24"><path d="M3 18l6-6 4 4 8-9M15 7h6v6"/></svg><h3>Slower Business Growth</h3><p>Busywork crowds out the work that grows you.</p></div></div></div></section>
+
+<section id="solutions"><div class="wrap rv" style="text-align:center"><h2 class="t">Automate. Simplify. <span class="gold">Grow.</span></h2>
+<p class="sub" style="margin:auto">Let intelligent automation handle repetitive work while you focus on growing your business.</p>
+<div class="flow" id="flow"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="34"/><circle cx="50" cy="50" r="22" style="animation-direction:reverse;opacity:.3"/></svg>
+<div class="mid"><svg viewBox="0 0 100 100" aria-label="ARVANA"><defs><linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1b8"/><stop offset=".5" stop-color="#D4AF37"/><stop offset="1" stop-color="#7a5a10"/></linearGradient><radialGradient id="gS" cx=".35" cy=".3"><stop offset="0" stop-color="#4a3a10"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs><circle cx="50" cy="50" r="46" fill="url(#gS)" stroke="url(#gA)" stroke-width="2.5"/><circle cx="50" cy="50" r="40" fill="none" stroke="#D4AF37" stroke-opacity=".45" stroke-dasharray="2 4"/><path d="M50 17 22 80h12l16-39 16 39h12z" fill="url(#gA)"/><path d="M36 67h28" stroke="url(#gA)" stroke-width="6"/></svg></div>
+<div class="node" style="left:50%;top:10%"><b>01</b>Customer Connects</div><div class="node" style="left:90%;top:50%"><b>02</b>ARVANA Understands</div>
+<div class="node" style="left:50%;top:90%"><b>03</b>Automation Takes Over</div><div class="node" style="left:10%;top:50%"><b>04</b>Business Grows</div></div></div></section>
+
+<section id="features"><div class="wrap rv"><h2 class="t">Automation <span class="gold">Capabilities</span></h2>
+<p class="sub">Configurable to your business. We tailor each one to how you already work.</p><div class="cards" id="fc"></div></div></section>
+
+<section id="industries"><div class="wrap rv"><h2 class="t">Built for Multiple <span class="gold">Industries</span></h2>
+<p class="sub">From real estate to e-commerce, ARVANA adapts to your business needs.</p>
+<div class="ind">
+<div class="ic lead"><div class="b"><h3>Real Estate</h3><ul><li>Property enquiry handling</li><li>Lead qualification</li><li>Site visit scheduling</li><li>Automated follow-ups</li></ul></div></div>
+<div class="ic"><div class="b"><h3>Textiles</h3><ul><li>Customer enquiry management</li><li>Product and order enquiries</li><li>Follow-up automation</li></ul></div></div>
+<div class="ic"><div class="b"><h3>E-commerce / D2C</h3><ul><li>Customer support</li><li>Order-related communication</li><li>Customer engagement</li></ul></div></div></div></div></section>
+
+<section id="contact"><div class="wrap rv" style="text-align:center"><h2 class="t">Ready to Transform <span class="gold">Your Business?</span></h2>
+<p class="sub" style="margin:auto">Tell us a little about your business. Let’s discover how automation can make your everyday work easier.</p>
+<form id="f" novalidate>
+<div><label for="n">NAME</label><input id="n" name="name" autocomplete="name" required><span class="err"></span></div>
+<div><label for="w">WHATSAPP NUMBER</label><input id="w" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required><span class="err"></span></div>
+<div><label for="e">EMAIL ADDRESS</label><input id="e" name="email" type="email" inputmode="email" autocomplete="email" required><span class="err"></span></div>
+<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+<button class="btn" id="sb" type="submit">Book a Free Session</button><div id="msg" role="status" aria-live="polite"></div></form></div></section>
+
+<footer><a class="logo" href="#home" style="justify-content:center">ARVANA</a><p>Intelligent automation for businesses that want less busywork and more life.</p>
+<h3 class="logo" style="font-size:1rem;margin:22px 0 8px">CONTACT US</h3>
+<div class="fc"><a href="mailto:arvanahq@gmail.com">Email: arvanahq@gmail.com</a><a href="tel:+917708431829">Call: +91 77084 31829</a></div>
+<p class="trust">Your details stay private. We use them only to arrange your free demo, with no spam and no obligation.</p>
+<nav><a href="#home">Home</a><a href="#solutions">Solutions</a><a href="#industries">About</a><a href="#contact">Contact</a></nav><p>© 2026 ARVANA. All rights reserved.</p></footer>
+
+<div id="dm" class="dm" role="dialog" aria-modal="true" aria-labelledby="dmt" hidden><div class="dp">
+<button class="dx" type="button" id="dx" aria-label="Close">×</button>
+<div id="dform"><h2 id="dmt" tabindex="-1">Start Your Free Demo</h2><p class="sub">Just tap your answers. It takes about a minute.</p>
+<div class="pgw"><div class="pg"><div id="pgb"></div></div><div id="pgt" class="pgt">0 of 8 answered</div></div>
+<form id="q" novalidate>
+<div class="qg">
+<div><label for="qn">NAME</label><input id="qn" name="name" autocomplete="name"><span class="err"></span></div>
+<div><label for="qw">WHATSAPP / MOBILE NUMBER</label><input id="qw" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210"><span class="err"></span></div>
+<div style="grid-column:1/-1"><label for="qe">EMAIL ADDRESS</label><input id="qe" name="email" type="email" inputmode="email" autocomplete="email"><span class="err"></span></div>
+</div>
+<div id="qq"></div>
+<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+<div style="margin-top:28px"><button class="btn" id="qs" type="submit" style="width:100%">Submit and Book My Free Demo</button></div><div id="qm" role="status" aria-live="polite" style="margin-top:14px"></div></form></div>
+<div id="dok" hidden style="text-align:center;padding:30px 0"><h2 class="gold" style="padding:0">Thank you, <span id="okn"></span>!</h2><p class="sub" style="margin:14px auto 24px">We’ve received your answers. We’ll contact you on WhatsApp soon to schedule your free demo.</p><button class="btn" type="button" id="okc">Close</button></div>
+</div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ---- Features
+const F=[["WhatsApp Automation","Reply to customers instantly on WhatsApp.","M4 20l1.5-4A8 8 0 1 1 9 19z"],["24/7 Enquiry Handling","Never miss a lead, day or night.","M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"],["Automated Follow-ups","Nudge leads without lifting a finger.","M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5M18 3v4h-4M6 21v-4h4"],["Lead Capture & Qualification","Focus on the leads worth your time.","M3 5h18l-7 8v6l-4-2v-4z"],["Appointment Scheduling","Bookings made effortlessly.","M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"],["CRM Automation","Keep customer records tidy and current.","M7 18a5 5 0 0 1 0-10 6 6 0 0 1 11 2 4 4 0 0 1-1 8z"],["Customer Communication","Build stronger relationships.","M4 5h16v11H9l-5 4z"],["Workflow Automation","Run your business smoothly.","M6 6a2 2 0 1 0 .01 0M18 4a2 2 0 1 0 .01 0M18 18a2 2 0 1 0 .01 0M8 7l8-2M7 8l10 9"]];
+document.getElementById('fc').innerHTML=F.map(x=>`<div class="card"><svg viewBox="0 0 24 24"><path d="${x[2]}"/></svg><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('');
+// ---- Reveal + flow
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const nodes=[...document.querySelectorAll('.node')];let step=0;
+const fo=new IntersectionObserver(es=>{if(es[0].isIntersecting){const t=setInterval(()=>{nodes[step%4].classList.add('on');step++;if(step>=4)clearInterval(t)},rm?0:700)}},{threshold:.4});fo.observe(document.getElementById('flow'));
+// ---- Form + discovery modal
+const ENDPOINT="/api/lead";
+const rules={name:v=>v.trim().length>=2||"Please enter your name.",whatsapp:v=>/^\+?[0-9\s-]{10,15}$/.test(v.trim())||"Enter a valid mobile number.",email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())||"Enter a valid email address."};
+const Q=[["ads","Do you currently run ads?",["Yes","No","Planning to start soon"]],
+["industry","What industry does your business belong to?",["Real Estate","Manufacturing","E-commerce","Other"]],
+["team","How many people are currently working in your team?",["Just me","2–5 members","6–10 members","11–25 members","26–50 members","50+ members"]],
+["ops","How do you currently manage your daily business operations?",["Completely manually","Using spreadsheets","Using different software/tools","Using automated systems","A combination of these"]],
+["channels","Which communication channels does your business mainly use?",["WhatsApp","Phone calls","Email","Website","Social media","Multiple channels"]],
+["enq","How do you currently manage customer enquiries?",["Personally","Through a dedicated team","Through a customer support system","Through automated responses","No proper system yet"]],
+["challenge","What is your biggest day-to-day business challenge?",["Repetitive manual tasks","Managing customer enquiries","Following up with customers","Managing team activities","Data and information management","Time management","Other"]],
+["timeline","What is your expected timeline for implementing a solution?",["Immediately","In 3 days","In 1 week"]]];
+const $=i=>document.getElementById(i),KEYS=['name','whatsapp','email'];
+const f=$('f'),msg=$('msg'),dm=$('dm'),q=$('q'),qs=$('qs'),qm=$('qm');
+const sid=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():('s'+Date.now()+Math.random().toString(36).slice(2));
+let interestSent=false,interestBusy=false,subm=false,done=false,lastFocus=null;
+$('qq').innerHTML=Q.map(([k,t,o],i)=>`<fieldset class="qc" id="qc-${k}"><legend>${i+1}. ${t}</legend><div class="ch">${o.map(v=>`<label><input type="radio" name="${k}" value="${v}"><span class="o">${v}</span></label>`).join('')}</div><span class="err"></span></fieldset>`).join('');
+function check(fm){let ok=true,first=null;for(const k of KEYS){const i=fm.elements[k],r=rules[k](i.value),s=i.parentNode.querySelector('.err');i.setAttribute('aria-invalid',r!==true);s.textContent=r===true?'':r;if(r!==true){ok=false;first=first||i}}if(first)first.focus();return ok}
+async function post(b){if(!ENDPOINT)return{ok:false,nb:true};try{const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});return{ok:r.ok}}catch(e){return{ok:false}}}
+function vals(fm){const o={};KEYS.forEach(k=>o[k]=fm.elements[k].value.trim());return o}
+function openDm(c){KEYS.forEach(k=>{const v=c?c[k]:(!q.elements[k].value&&f.elements[k].value.trim());if(v)q.elements[k].value=v});lastFocus=document.activeElement;dm.hidden=false;document.body.style.overflow='hidden';$('dmt').focus();prog()}
+function closeDm(){dm.hidden=true;document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+function prog(){const n=Q.filter(([k])=>q.elements[k].value).length;$('pgb').style.width=(n/Q.length*100)+'%';$('pgt').textContent=n+' of '+Q.length+' answered'}
+q.addEventListener('change',e=>{if(e.target.type==='radio'){const fs=e.target.closest('fieldset');fs.classList.remove('miss');fs.querySelector('.err').textContent=''}prog()});
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openDm()));
+$('dx').addEventListener('click',closeDm);$('okc').addEventListener('click',closeDm);
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!dm.hidden)closeDm()});
+async function sendInterest(c){if(interestBusy||interestSent)return;interestBusy=true;let r=await post({stage:'interest',sid,...c});if(!r.ok&&!r.nb)r=await post({stage:'interest',sid,...c});interestSent=r.ok;interestBusy=false}
+// Existing section: validate, open the ONE discovery form, send Email 1 in the background
+f.addEventListener('submit',ev=>{ev.preventDefault();msg.className='';msg.textContent='';
+if(!check(f)||f.elements.website.value)return;
+const c=vals(f);openDm(c);sendInterest(c)});
+// Discovery form: validate everything, then send Email 2
+q.addEventListener('submit',async ev=>{ev.preventDefault();if(subm||done)return;qm.className='';qm.textContent='';
+const okc=check(q);let first=null;const answers=[];
+Q.forEach(([k,t])=>{const v=q.elements[k].value,fs=$('qc-'+k);if(!v){fs.classList.add('miss');fs.querySelector('.err').textContent='Please choose one option.';first=first||fs}else answers.push({q:t,a:v})});
+if(!okc)return;if(first){first.scrollIntoView({behavior:'smooth',block:'center'});return}
+if(q.elements.website.value)return;
+const c=vals(q);subm=true;qs.disabled=true;qs.textContent='Submitting…';
+if(!ENDPOINT){qm.className='bad';qm.textContent="Validated, but no email backend is connected yet, so nothing was sent.";subm=false;qs.disabled=false;qs.textContent='Submit and Book My Free Demo';return}
+const r=await post({stage:'questionnaire',sid,...c,answers});
+if(r.ok){done=true;$('okn').textContent=c.name;$('dform').hidden=true;$('dok').hidden=false;$('dok').scrollIntoView({block:'center'})}
+else{qm.className='bad';qm.textContent="We couldn’t send your details. Please check your connection and try again, or email arvanahq@gmail.com.";subm=false;qs.disabled=false;qs.textContent='Submit and Book My Free Demo'}});
+// ---- 3D core
+try{const cv=document.getElementById('bg'),mob=innerWidth<800;
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:!mob,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,mob?1.5:2));
+const S=new THREE.Scene(),C=new THREE.PerspectiveCamera(40,1,.1,100);C.position.z=9;
+// env map
+const ec=document.createElement('canvas');ec.width=512;ec.height=256;const g=ec.getContext('2d'),gr=g.createLinearGradient(0,0,0,256);gr.addColorStop(0,'#fff0c0');gr.addColorStop(.5,'#2a1c06');gr.addColorStop(1,'#000');g.fillStyle=gr;g.fillRect(0,0,512,256);g.fillStyle='#fff';g.fillRect(60,60,80,30);g.fillRect(300,90,120,20);
+const et=new THREE.CanvasTexture(ec);et.mapping=THREE.EquirectangularReflectionMapping;const pm=new THREE.PMREMGenerator(R);S.environment=pm.fromEquirectangular(et).texture;
+const core=new THREE.Group();S.add(core);
+const gold=new THREE.MeshStandardMaterial({color:0xD4AF37,metalness:1,roughness:.22});
+core.add(new THREE.Mesh(new THREE.SphereGeometry(1.5,64,64),gold));
+const sh=new THREE.Shape();sh.moveTo(0,1.15);sh.lineTo(-.95,-1.1);sh.lineTo(-.58,-1.1);sh.lineTo(-.4,-.65);sh.lineTo(.4,-.65);sh.lineTo(.58,-1.1);sh.lineTo(.95,-1.1);sh.closePath();
+const hole=new THREE.Path();hole.moveTo(0,.4);hole.lineTo(.27,-.3);hole.lineTo(-.27,-.3);hole.closePath();sh.holes.push(hole);
+const A=new THREE.Mesh(new THREE.ExtrudeGeometry(sh,{depth:.4,bevelEnabled:true,bevelThickness:.07,bevelSize:.07,bevelSegments:5}),new THREE.MeshStandardMaterial({color:0xF0C850,metalness:1,roughness:.15}));A.position.set(0,-.05,1.55);A.scale.setScalar(.9);core.add(A);
+const gc=document.createElement('canvas');gc.width=gc.height=256;const gx=gc.getContext('2d'),gg=gx.createRadialGradient(128,128,0,128,128,128);gg.addColorStop(0,'rgba(255,200,90,.55)');gg.addColorStop(.4,'rgba(212,175,55,.15)');gg.addColorStop(1,'rgba(0,0,0,0)');gx.fillStyle=gg;gx.fillRect(0,0,256,256);
+const halo=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(gc),blending:THREE.AdditiveBlending,depthWrite:false,transparent:true}));halo.scale.set(11,11,1);halo.position.z=-1;core.add(halo);
+const rings=[];[[2.2,.012,.5,.2],[2.7,.01,1.2,-.5],[3.3,.008,-.6,.9]].forEach(([r,t,rx,rz])=>{const m=new THREE.Mesh(new THREE.TorusGeometry(r,t,8,160),new THREE.MeshBasicMaterial({color:0xf0c850,transparent:true,opacity:.85}));m.rotation.set(rx,0,rz);core.add(m);rings.push(m)});
+S.add(new THREE.PointLight(0xffd57a,2,30).translateX(4).translateY(3).translateZ(6));S.add(new THREE.AmbientLight(0x443322,.6));
+const N=mob?250:700,p=new Float32Array(N*3);for(let i=0;i<N*3;i++)p[i]=(Math.random()-.5)*(i%3==2?14:22);
+const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(p,3));const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xD4AF37,size:.035,transparent:true,opacity:.6}));S.add(pts);
+let mx=0,my=0,sy=0;addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+function size(){R.setSize(innerWidth,innerHeight,false);C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix()}size();addEventListener('resize',size);
+let vis=true;document.addEventListener('visibilitychange',()=>{vis=!document.hidden;if(vis)loop()});
+function loop(){if(!vis)return;requestAnimationFrame(loop);const t=performance.now()/1000,H=Math.max(1,document.body.scrollHeight-innerHeight),k=scrollY/H;
+const wide=innerWidth>860;const tx=wide?3.1-k*4.8*(k<.5?1:0)-(k>=.5?(1-k)*0:0):0;
+core.position.x+=((wide?(k<.12?2.6:Math.sin(k*Math.PI*2)*2.2):0)-core.position.x)*.05;core.position.y+=((wide?0:1.6-k*2)+(wide?0:0)-core.position.y)*.05;
+const sc=wide?(k<.12?1.2:.7):.6;core.scale.setScalar(core.scale.x+(sc-core.scale.x)*.05);
+if(!rm){core.rotation.y=Math.sin(t*.5)*.45+mx*.6;core.rotation.x=my*.35;rings.forEach((r,i)=>r.rotation.z+=.002*(i+1));pts.rotation.y=t*.01}
+C.position.y=-k*1.2;R.render(S,C)}loop();
+}catch(e){console.warn('3D unavailable',e)}
+</script></body></html>
